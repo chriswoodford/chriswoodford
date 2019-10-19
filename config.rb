@@ -25,7 +25,6 @@ configure :build do |config|
   activate :minify_css
   activate :minify_javascript
   activate :asset_hash
-  activate :directory_indexes
   activate :asset_host, host: "//#{ENV['CLOUDFRONT_DISTRIBUTION_ID']}.cloudfront.net"
 end
 
