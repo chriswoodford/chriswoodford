@@ -1,7 +1,7 @@
 module NavHelpers
   def nav_item(text, path, selected: false)
-    classes = %w(no-underline border-b-2 border-transparent uppercase
-                 tracking-wide font-bold text-xs py-3 mr-8)
+    classes = %w(flex-auto no-underline border-b-2 border-transparent uppercase
+                 tracking-wide font-bold text-xs py-3 mx-3)
     classes << nav_item_selection_classes(selected: selected)
     link_to(text, path, class: classes.join(" "))
   end
