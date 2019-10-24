@@ -47,3 +47,6 @@ activate :s3_sync do |s3_sync|
   s3_sync.index_document = "index.html"
   s3_sync.error_document = "404.html"
 end
+
+require "lib/helpers/content_helpers"
+helpers ContentHelpers
