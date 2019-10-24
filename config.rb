@@ -49,4 +49,6 @@ activate :s3_sync do |s3_sync|
 end
 
 require "lib/helpers/content_helpers"
+require "lib/helpers/nav_helpers"
 helpers ContentHelpers
+helpers NavHelpers
