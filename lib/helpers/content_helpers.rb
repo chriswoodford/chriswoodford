@@ -42,11 +42,15 @@ module ContentHelpers
   end
 
   def figure_tag(&block)
-    content_tag(:figure, class: "mb-4", &block)
+    content_tag(:figure, class: "flex flex-wrap mb-4 md:flex-no-wrap", &block)
+  end
+
+  def figure(src)
+    image_tag(src, class: "object-left-top flex-1 lg:pr-4 lg:max-w-lg")
   end
 
   def caption_tag(number:, &block)
-    classes = %w(text-sm italic border-l-4 border-gray-400 my-1 pl-4)
+    classes = %w(text-sm italic border-l-4 border-gray-400 my-1 pl-4 self-start)
     text = "Figure #{number}: #{capture_html(&block)}"
     content_tag(:figcaption, text, class: classes.join(" "), &block)
   end
