@@ -28,8 +28,13 @@ module ContentHelpers
     content_tag(:p, class: "pb-4", &block)
   end
 
-  def blockquote_tag(cite:, &block)
-    classes = %w(border-l-4 border-indigo-500 italic my-8 pl-8 md:pl-12)
+  def blockquote_tag(cite: "", &block)
+    classes = %w(border-l-4 border-indigo-500 italic my-4 pl-8 md:pl-12)
     content_tag(:blockquote, cite: cite, class: classes.join(" "), &block)
+  end
+
+  def blockquote_cite(source:, reference:)
+    capture = content_tag(:cite, "#{source}")
+    "&ndash; #{capture} #{reference}"
   end
 end
