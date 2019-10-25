@@ -15,13 +15,12 @@ module ContentHelpers
   end
 
   def section_tag(&block)
-    body = capture_html(&block)
-    content_tag(:section, body, class: "py-4")
+    content_tag(:section, class: "py-2", &block)
   end
 
   def section_title(text)
     classes = %w(font-bold font-sans break-normal text-gray-900 text-2xl
-                 md:text-3xl)
+                 md:text-3xl my-4)
     content_tag(:h2, text, class: classes.join(" "))
   end
 
