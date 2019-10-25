@@ -25,16 +25,29 @@ module ContentHelpers
   end
 
   def paragraph_tag(&block)
-    content_tag(:p, class: "pb-4", &block)
+    content_tag(:p, class: "mb-4", &block)
   end
 
   def blockquote_tag(cite: "", &block)
-    classes = %w(border-l-4 border-indigo-500 italic my-4 pl-8 md:pl-12)
+    classes = %w(border-l-4 border-indigo-500 italic my-4 pl-8 md:pl-12
+                 text-2xl)
     content_tag(:blockquote, cite: cite, class: classes.join(" "), &block)
   end
 
-  def blockquote_cite(source:, reference:)
+  def blockquote_cite(source:, reference: nil)
     capture = content_tag(:cite, "#{source}")
-    "&ndash; #{capture} #{reference}"
+    content_tag(:footer, class: "text-base text-gray-600") do
+      "&ndash; #{capture} #{reference}"
+    end
+  end
+
+  def figure_tag(&block)
+    content_tag(:figure, class: "mb-4", &block)
+  end
+
+  def caption_tag(number:, &block)
+    classes = %w(text-sm italic border-l-4 border-gray-400 my-1 pl-4)
+    text = "Figure #{number}: #{capture_html(&block)}"
+    content_tag(:figcaption, text, class: classes.join(" "), &block)
   end
 end
