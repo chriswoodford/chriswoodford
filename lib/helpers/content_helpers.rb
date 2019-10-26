@@ -46,7 +46,9 @@ module ContentHelpers
   end
 
   def figure(src)
-    image_tag(src, class: "object-left-top flex-1 lg:pr-4 lg:max-w-lg")
+    classess = %w(object-left-top object-contain flex-1 self-start
+                  lg:pr-4 lg:max-w-lg)
+    image_tag(src, class: classess.join(" "))
   end
 
   def caption_tag(number:, &block)
