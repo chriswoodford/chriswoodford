@@ -24,6 +24,12 @@ module ContentHelpers
     content_tag(:h2, text, class: classes.join(" "))
   end
 
+  def section_subtitle(text)
+    classes = %w(font-bold font-sans break-normal text-gray-900 text-xl
+                 md:text-2xl my-2)
+    content_tag(:h3, text, class: classes.join(" "))
+  end
+
   def paragraph_tag(&block)
     content_tag(:p, class: "mb-4", &block)
   end
