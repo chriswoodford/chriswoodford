@@ -11,7 +11,8 @@ module ContentHelpers
   def article_title(text)
     classes = %w(font-bold font-sans break-normal text-gray-900 text-3xl
                  md:text-4xl)
-    content_tag(:h1, text, class: classes.join(" "))
+    id = text.split(" ").map(&:downcase).join("-")
+    content_tag(:h1, text, class: classes.join(" "), id: id)
   end
 
   def section_tag(&block)
@@ -21,13 +22,15 @@ module ContentHelpers
   def section_title(text)
     classes = %w(font-bold font-sans break-normal text-gray-900 text-2xl
                  md:text-3xl my-4)
-    content_tag(:h2, text, class: classes.join(" "))
+    id = text.split(" ").map(&:downcase).join("-")
+    content_tag(:h2, text, class: classes.join(" "), id: id)
   end
 
   def section_subtitle(text)
     classes = %w(font-bold font-sans break-normal text-gray-900 text-xl
                  md:text-2xl my-2)
-    content_tag(:h3, text, class: classes.join(" "))
+    id = text.split(" ").map(&:downcase).join("-")
+    content_tag(:h3, text, class: classes.join(" "), id: id)
   end
 
   def paragraph_tag(&block)
