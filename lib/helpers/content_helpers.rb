@@ -39,7 +39,7 @@ module ContentHelpers
 
   def blockquote_tag(cite: "", &block)
     classes = %w(border-l-4 border-indigo-500 italic my-4 pl-8 md:pl-12
-                 text-2xl)
+                 text-xl)
     content_tag(:blockquote, cite: cite, class: classes.join(" "), &block)
   end
 
