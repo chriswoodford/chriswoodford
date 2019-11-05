@@ -8,6 +8,10 @@ module ContentHelpers
     content_tag(:header, class: "py-4", &block)
   end
 
+  def article_footer(&block)
+    content_tag(:footer, class: "py-4 text-base", &block)
+  end
+
   def article_title(text)
     classes = %w(font-bold font-sans break-normal text-gray-900 text-3xl
                  md:text-4xl)
@@ -64,5 +68,9 @@ module ContentHelpers
     classes = %w(text-sm italic border-l-4 border-gray-400 my-1 pl-4 self-start)
     text = "Figure #{number}: #{capture_html(&block)}"
     content_tag(:figcaption, text, class: classes.join(" "), &block)
+  end
+
+  def last_updated_at
+    content_tag(:small, "Last updated: #{File.mtime(__FILE__).to_date}")
   end
 end
