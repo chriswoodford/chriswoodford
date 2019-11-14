@@ -70,7 +70,7 @@ module ContentHelpers
     content_tag(:figcaption, text, class: classes.join(" "), &block)
   end
 
-  def last_updated_at
-    content_tag(:small, "Last updated: #{File.mtime(__FILE__).to_date}")
+  def last_updated_at(file)
+    content_tag(:small, "Last updated: #{File.mtime(file).to_date}")
   end
 end
