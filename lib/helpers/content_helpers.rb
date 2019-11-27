@@ -73,4 +73,12 @@ module ContentHelpers
   def last_updated_at(file)
     content_tag(:small, "Last updated: #{File.mtime(file).to_date}")
   end
+
+  def footnote_tag(index:)
+    link_to "<sup>#{index}</sup>", "#footnote-#{index}"
+  end
+
+  def footnote(index:, text:)
+
+  end
 end
