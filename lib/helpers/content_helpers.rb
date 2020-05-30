@@ -1,6 +1,6 @@
 module ContentHelpers
   def article_tag(&block)
-    classes = %w(w-full px-4 md:px-6 text-xl text-gray-800 leading-normal)
+    classes = %w(w-full px-4 md:px-6 text-xl text-gray-800 leading-normal bg-white overflow-hidden shadow rounded-lg)
     content_tag(:article, class: classes.join(" "), &block)
   end
 
@@ -20,7 +20,7 @@ module ContentHelpers
   end
 
   def section_tag(&block)
-    content_tag(:section, class: "py-2", &block)
+    content_tag(:section, class: "px-4 py-5 sm:p-6", &block)
   end
 
   def section_title(text)
